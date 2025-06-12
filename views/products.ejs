@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Products</title>
+    </head>
+<body>
+    <h2>Our Products</h2>
+    <ul>
+        <% products.forEach(p => { %>
+            <li>
+                <%= p.name %> - ₹<%= p.price %>
+                <form action="/cart/add" method="POST" style="display:inline;">
+                    <input type="hidden" name="productId" value="<%= p._id %>">
+                    <button type="submit">Add to Cart</button>
+                </form>
+            </li>
+        <% }) %>
+    </ul>
+</body>
+</html>

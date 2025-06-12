@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Services</title>
+</head>
+<body>
+    <h2>Luxury Car Services</h2>
+    <ul>
+        <% services.forEach(s => { %>
+            <li>
+                <%= s.name %> - ₹<%= s.price %> 
+                <form action="/cart/add" method="POST" style="display:inline;">
+                    <input type="hidden" name="productId" value="<%= s._id %>"> <button type="submit">Add to Cart</button>
+                </form>
+            </li>
+        <% }) %>
+    </ul>
+</body>
+</html>
