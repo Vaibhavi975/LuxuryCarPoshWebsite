@@ -9,11 +9,9 @@ require('dotenv').config();
 const port = process.env.PORT || 3000;
 
 // Connect to MongoDB
-mongoose.connect('mongodb://localhost:27017/luxurycarposhwebsite', {
-    // These options are deprecated and can be removed in Mongoose 4.0.0+.
-    // It's good practice to remove them, but they aren't causing the timeout.
-    // useNewUrlParser: true,
-    // useUnifiedTopology: true,
+mongoose.connect(process.env.MONGODB_URI, { // <--- CHANGE THIS LINE
+    useNewUrlParser: true, // These options are still good to keep
+    useUnifiedTopology: true, // for compatibility, though some are deprecated in latest Mongoose
 })
 .then(() => {
     // THIS BLOCK RUNS ONLY AFTER MONGODB CONNECTION IS SUCCESSFUL
